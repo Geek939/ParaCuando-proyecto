@@ -1,12 +1,18 @@
 import Link from 'next/link';
+import { useState } from 'react';
 import Logo from '../components/assets/logo/Logo';
 import { Layout } from '../components/layout/Layout';
+import { EventSlider } from '../components/sliders/EventSlider/EventSlider';
+import { eventsMock } from '../lib/data/events.mock';
 import { useCategories } from '../lib/services/categories.services';
-
+import Interests from './Interests';
 import { NextPageWithLayout } from './page';
+
 
 const Home: NextPageWithLayout = () => {
   const { data, error, isLoading } = useCategories();
+
+  const [bool, setbool] = useState(false); //controla cuando estas logeado o no
 
   console.log({ data, error, isLoading });
 
@@ -25,19 +31,35 @@ const Home: NextPageWithLayout = () => {
           />
           <div className="flex items-center justify-center gap-2">
             <Link href={'/category/marcas-y-tiendas'}>
-              <button>Marcas y tiendas</button>
+              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-4 ">
+                Marcas y Tiendas
+              </button>
             </Link>
             <Link href={'/category/marcas-y-tiendas'}>
-              <button>Artistas y conciertos</button>
+              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-4 ">
+                Artistas y conciertos
+              </button>
             </Link>
             <Link href={'/category/marcas-y-tiendas'}>
-              <button>Torneos</button>
+              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-4 ">
+                Torneos
+              </button>
             </Link>
           </div>
         </div>
       </div>
       {/* CONTENIDO */}
-      <div className="bg-red-300 h-[70vh]">CONTENIDO</div>
+
+      <div className="">
+     <section className='m-auto my-10'><Interests></Interests></section> 
+     <EventSlider
+          title="Populares en Querétaro"
+          subtitle="Lo que las personas piden más"
+          events={eventsMock}
+        ></EventSlider>
+      </div>
+
+      
     </div>
   );
 };

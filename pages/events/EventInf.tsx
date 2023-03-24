@@ -3,24 +3,21 @@ import { Vector } from '../../components/assets/svg/Vector';
 import Header from '../../components/navigation/header/Header';
 import SearchAndCategory from '../../components/search/SearchAndCategory';
 import { eventsMock } from '../../lib/data/events.mock';
-import { IEvent } from '../../lib/interfaces/event.interface';
 import Interests from '../Interests';
 
 const EventInf = () => {
   const [categoria, setcategoria] = useState('Artista / Pop - Rock');
-    const [obj, setobj] = useState(eventsMock[1]);
- 
- 
+  const [obj, setobj] = useState(eventsMock[1]);
+
   const fun = () => {
     setcategoria('restaurante / local');
-   
   };
 
   return (
     <div>
       <Header></Header>
-      <div className="flex flex-col absolute top-20">        
-        {' '}              
+      <div className="flex flex-col absolute top-20">
+        {' '}
         <SearchAndCategory></SearchAndCategory>
         <section className=" max-w-min m-auto mt-14 grid grid-cols-2-min grid-rows-3-min gap-x-5 ">
           <div className="flex flex-col  col-start-1 m-0   ">
@@ -50,12 +47,9 @@ const EventInf = () => {
           <button className="bg-blue-600 text-white col-start-1 rounded-2xl ">
             votar
           </button>
-
-          <img
-            src={obj.image}
-            alt="event img"
-            className=" col-start-2 row-span-3 row-start-1 "
-          />
+          <div className=' col-start-2 w-full h-full row-span-3 row-start-1'>
+            <img src={eventsMock[1].image} alt="event img" />
+          </div>
         </section>
         <article className="mt-10">
           <Interests></Interests>

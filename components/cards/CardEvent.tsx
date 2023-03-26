@@ -20,13 +20,12 @@ const CardEvent = ({  title, short_description,votes,image,url }: IEvent) => {
     <div className="flex h-min w-min m-0 ">
       <article className=" z-0 grid grid-cols-1 grid-rows-2   m-auto bg-white rounded-2xl w-72 max-h-[50rem] shadow-lg shadow-black-500/50">
         {/*Section 1 foto de artista y el boton de votar*/}
-        <Link href="./events/EventInf" className="col-span-1 row-span-2" >
+        <Link
+          href="./events/EventInformation"
+          className="col-span-1 row-span-2"
+        >
           {/*imagen del evento */}
-          <img
-            src={image}
-            alt="event image"
-            className="rounded-t-2xl"
-          />
+          <img src={image} alt="event image" className="rounded-t-2xl" />
         </Link>
 
         {/*Section 2 informacion*/}
@@ -40,9 +39,7 @@ const CardEvent = ({  title, short_description,votes,image,url }: IEvent) => {
 
           {/*Description event*/}
           <div className="row-start-2 h-24 row-end-3 w-56 text-left text-gray-letter text-sm col-start-1 col-span-3 m-auto ml-3 overflow-hidden">
-            <p>
-              {short_description}
-            </p>
+            <p>{short_description}</p>
           </div>
 
           {/*LINK externo*/}

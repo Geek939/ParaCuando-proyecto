@@ -14,7 +14,7 @@ const IndexLoginRegister = () => {
         {/* LOGO DE LA PAGINA / PARA CUANDO LOGO */}
         <article className="m-auto">
           <Link href={'/'}>
-            <Logo variant="yellow" onlyIcon={true} />{' '}
+            <Logo variant="yellow" height={'auto'} width={'auto'} onlyIcon={true} />{' '}
           </Link>
         </article>
 
@@ -29,3 +29,4 @@ const IndexLoginRegister = () => {
 }
 
 export default IndexLoginRegister;
+

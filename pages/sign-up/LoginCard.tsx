@@ -2,7 +2,15 @@ import Link from 'next/link';
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { ExitCircle } from '../../components/assets/svg/ExitCircle';
+import swal from 'sweetalert';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+
 const LoginCard = () => {
+
+ const router = useRouter();
+const [NavigatetoLogin, setNavigatetoLogin] = useState('');
+let user = JSON.parse(localStorage.getItem('datos') || ''); 
 
 type FormValues = {
   firstName: string;
@@ -20,8 +28,24 @@ type FormValues = {
     },
   });
 
+
+  useEffect(() => {
+    if (localStorage.getItem('datos')) { 
+      user = JSON.parse(localStorage.getItem('datos') || ''); 
+    }
+ 
+   
+  }, [])
+  
+
   const onSubmit = async (data: FormValues) => {
     console.log(data);
+  
+    
+   console.log(user)
+  if (user.email === data.email && user.password === data.password) {
+     setNavigatetoLogin('/')
+   } else { swal('correo o contraseña incorrectos') }
 
     // createUser(data)
     //   .then((resp) => {
@@ -32,7 +56,8 @@ type FormValues = {
     //   });
   };
 
-
+ 
+ 
 
 
 
@@ -74,7 +99,8 @@ type FormValues = {
           <label className="flex flex-col  gap-1 col-span-2 m-0">
             <span className="font-semibold ">Email</span>
             <input
-              className="border-2 border-gris-dark p-2 rounded-[5px] bg-neutral-900/0"
+              className="border-2 border-gris-dark 
+              p-2 rounded-[5px] bg-neutral-900/0"
               type="text"
               placeholder="ejemplo@gmail.com"
               {...register('email')}
@@ -99,11 +125,14 @@ type FormValues = {
               </p>{' '}
               <p className="text-app-yellow text-sm ">Recupérala aquí</p>
             </div>
-            <button className="bg-app-yellow rounded-sm font-bold h-10 text-black">
+            <button
+              onClick={() => router.push(NavigatetoLogin)}
+              className="bg-app-yellow rounded-sm font-bold h-10 text-black"
+            >
               iniciar sesion
             </button>
 
-           {/* Crear cuenta */}
+            {/* Crear cuenta */}
             <Link
               href="./IndexLoginRegister"
               className="text-center app-subtitle-2 text-app-yellow mt-4"
@@ -113,9 +142,8 @@ type FormValues = {
           </div>
         </form>
       </div>
-      
     </div>
   );
 }
 
-export default LoginCard
+export default LoginCard;

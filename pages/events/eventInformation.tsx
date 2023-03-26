@@ -5,7 +5,7 @@ import SearchAndCategory from '../../components/search/SearchAndCategory';
 import { eventsMock } from '../../lib/data/events.mock';
 import Interests from '../Interests';
 
-const EventInf = () => {
+const EventInformation = () => {
   const [categoria, setcategoria] = useState('Artista / Pop - Rock');
   const [obj, setobj] = useState(eventsMock[1]);
 
@@ -47,7 +47,7 @@ const EventInf = () => {
           <button className="bg-blue-600 text-white col-start-1 rounded-2xl ">
             votar
           </button>
-          <div className=' col-start-2 w-full h-full row-span-3 row-start-1'>
+          <div className=" col-start-2 w-full h-full row-span-3 row-start-1">
             <img src={eventsMock[1].image} alt="event img" />
           </div>
         </section>
@@ -59,4 +59,4 @@ const EventInf = () => {
   );
 };
 
-export default EventInf;
+export default EventInformation;

@@ -12,8 +12,6 @@ import { NextPageWithLayout } from './page';
 const Home: NextPageWithLayout = () => {
   const { data, error, isLoading } = useCategories();
 
-  const [bool, setbool] = useState(false); //controla cuando estas logeado o no
-
   console.log({ data, error, isLoading });
 
   return (

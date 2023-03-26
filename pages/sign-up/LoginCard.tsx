@@ -10,7 +10,7 @@ const LoginCard = () => {
 
  const router = useRouter();
 const [NavigatetoLogin, setNavigatetoLogin] = useState('');
-let user = JSON.parse(localStorage.getItem('datos') || ''); 
+let user:any = '' ; 
 
 type FormValues = {
   firstName: string;
@@ -30,8 +30,8 @@ type FormValues = {
 
 
   useEffect(() => {
-    if (localStorage.getItem('datos')) { 
-      user = JSON.parse(localStorage.getItem('datos') || ''); 
+    if (typeof window !== 'undefined') {
+      user = JSON.parse(localStorage.getItem('datos') || '');
     }
  
    
@@ -43,7 +43,7 @@ type FormValues = {
   
     
    console.log(user)
-  if (user.email === data.email && user.password === data.password) {
+  if (user?.email === data.email && user?.password === data.password) {
      setNavigatetoLogin('/')
    } else { swal('correo o contraseña incorrectos') }
 

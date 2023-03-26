@@ -6,7 +6,7 @@ import { PlusBlue } from '../../assets/svg/PlusBlue';
 import { UserCircleVector } from '../../assets/svg/UserCircleVector';
 
 const Header = () => {
-  const [bool, setbool] = useState(true); //controla cuando estas logeado o no
+  const [bool, setbool] = useState(false); //controla cuando estas logeado o no
   let user = {email:'nada'} ; 
 
  useEffect(() => {

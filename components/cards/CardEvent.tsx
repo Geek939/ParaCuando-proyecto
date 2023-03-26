@@ -21,7 +21,7 @@ const CardEvent = ({  title, short_description,votes,image,url }: IEvent) => {
       <article className=" z-0 grid grid-cols-1 grid-rows-2   m-auto bg-white rounded-2xl w-72 max-h-[50rem] shadow-lg shadow-black-500/50">
         {/*Section 1 foto de artista y el boton de votar*/}
         <Link
-          href="./events/EventInformation"
+          href="./events/eventInformation"
           className="col-span-1 row-span-2"
         >
           {/*imagen del evento */}

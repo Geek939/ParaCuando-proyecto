@@ -1,32 +1,36 @@
 import { useState } from 'react';
 import { Vector } from '../../components/assets/svg/Vector';
-import Header from '../../components/navigation/header/Header';
+import { Layout } from '../../components/layout/Layout';
 import SearchAndCategory from '../../components/search/SearchAndCategory';
 import { eventsMock } from '../../lib/data/events.mock';
 import Interests from '../Interests';
+import { NextPageWithLayout } from '../page';
 
-const EventInformation = () => {
+
+
+  const EventInformation: NextPageWithLayout = () => {
+
+  
   const [categoria, setcategoria] = useState('Artista / Pop - Rock');
-  const [obj, setobj] = useState(eventsMock[1]);
+  const [obj, setobj] = useState(eventsMock[0]);
 
-  const fun = () => {
-    setcategoria('restaurante / local');
-  };
+  
 
   return (
-    <div>
-      <Header></Header>
+    <div className="h-screen ">
       <div className="flex flex-col absolute top-20">
         {' '}
         <SearchAndCategory></SearchAndCategory>
-        <section className=" max-w-min m-auto mt-14 grid grid-cols-2-min grid-rows-3-min gap-x-5 ">
-          <div className="flex flex-col  col-start-1 m-0   ">
-            <h2 className="font-medium">{categoria}</h2>
-            <h1 className="text-[30px] font-black  ">{obj.title}</h1>
-            <h3 className="  w-[50%]">{obj.short_description}</h3>
+
+        
+        <section className=" m-auto mt-2 grid grid-cols-2-min grid-rows-3-min gap-x-5 ">
+          <div className="flex flex-col w-72  col-start-1 m-0 bg-green-600  ">
+            <h2 className="font-medium bg-red-700 ">{categoria}</h2>
+            <h1 className="text-2xl h-16 font-black bg-blue-500  ">{obj.title}</h1>
+            <h3 className=" mb-10 h-36  bg-orange-500 ">{obj.short_description}</h3>
           </div>
 
-          <article className="col-start-1">
+          <article className="col-start-1 bg-emerald-700 ">
             <a
               href="ladygaga.com"
               target={'_blank'}
@@ -35,7 +39,7 @@ const EventInformation = () => {
               {obj.url}
             </a>
 
-            <div className="flex gap-1 ">
+            <div className="flex gap-1  ">
               <div className="m-auto mr-0 ml-0">
                 <Vector></Vector>
               </div>
@@ -44,15 +48,17 @@ const EventInformation = () => {
               </h3>
             </div>
           </article>
-          <button className="bg-blue-600 text-white col-start-1 rounded-2xl ">
+          
+          <button className="bg-blue-600 text-white w-full h-full  mt-4 m-0 col-start-1 rounded-2xl ">
             votar
           </button>
-          <div className=" col-start-2 w-full h-full row-span-3 row-start-1">
-            <img src={eventsMock[1].image} alt="event img" />
-          </div>
+           <img src={eventsMock[1].image} alt="event img" className='col-start-2 w-auto h-60 row-span-3 row-start-1' />  
         </section>
+       
+
+
         <article className="mt-10">
-          <Interests></Interests>
+          <Interests></Interests>{' '}
         </article>
       </div>
     </div>
@@ -60,3 +66,7 @@ const EventInformation = () => {
 };
 
 export default EventInformation;
+
+EventInformation.getLayout = function getLayout(page) {
+  return <Layout classMain='app-container' >{page}</Layout>;
+};

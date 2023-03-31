@@ -4,14 +4,15 @@ import Header from '../navigation/header/Header';
 
 interface ILayout {
   children: React.ReactNode;
+  classMain?:string;
 }
 
-export const Layout: React.FC<ILayout> = ({ children }) => {
+export const Layout: React.FC<ILayout> = ({ children, classMain }) => {
   return (
     <>
       <div className="overflow-x-hidden">
         <Header />
-        <main  className="app-container">{children}</main>
+        <main  className={classMain}>{children}</main>
         <Footer />
       </div>
     </>

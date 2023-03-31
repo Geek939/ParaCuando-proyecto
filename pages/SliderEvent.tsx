@@ -1,4 +1,3 @@
-import Card from '../components/cards/CardEvent';
 import { EventSlider } from '../components/sliders/EventSlider/EventSlider';
 
 const SliderEvent = () => {

@@ -4,6 +4,7 @@ import { NextPageWithLayout } from '../page';
 import SearchAndCategory from '../../components/search/SearchAndCategory';
 import { EventSlider } from '../../components/sliders/EventSlider/EventSlider';
 import { eventsMock } from '../../lib/data/events.mock';
+import Interests from '../Interests';
 
 export const CategoryPage: NextPageWithLayout = () => {
 
@@ -24,7 +25,7 @@ export const CategoryPage: NextPageWithLayout = () => {
             </span>{' '}
           </h1>
 
-          <h3 className="font-normal ">
+          <h3 className="font-normal max-w-[90%] ">
             Descubre las marcas y tiendas que la gente quiere cerca
           </h3>
         </section>
@@ -39,6 +40,9 @@ export const CategoryPage: NextPageWithLayout = () => {
         subtitle="Lo que las personas piden más"
         events={eventsMock}
       ></EventSlider>
+
+     <Interests></Interests>
+
     </div>
   );
 };

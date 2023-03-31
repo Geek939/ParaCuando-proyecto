@@ -19,6 +19,12 @@
   .app-banner {
     @apply w-screen m-auto relative left-[calc(-50vw_+_50%)];
   }
+  .app-menu {
+  @apply absolute left-0 top-0 h-[100px] right-0 z-0 shadow-sm flex;
+ }
+.app-menu-row {
+  @apply shadow-[0px] flex-row z-10 w-[400px] h-auto translate-y-0 top-[36px] left-[3%];
+}
   .text-gradient {
     background: rgb(255, 255, 255);
     background: -moz-linear-gradient(

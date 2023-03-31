@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { useState } from 'react';
 import Logo from '../components/assets/logo/Logo';
 import { Layout } from '../components/layout/Layout';
+import ModalVotes from '../components/modals/ModalVotes';
 import { EventSlider } from '../components/sliders/EventSlider/EventSlider';
 import { eventsMock } from '../lib/data/events.mock';
 import { useCategories } from '../lib/services/categories.services';
@@ -16,7 +16,8 @@ const Home: NextPageWithLayout = () => {
 
   return (
     <div>
-      {/* HERO SECTION */}
+     {/* HERO SECTION */}
+      <article className='flex mt-20 ml-10 max-h-min '><ModalVotes></ModalVotes> </article>
       <div className='min-h-[488px] flex justify-center items-center flex-col bg-[url("/hero-banner.png")] bg-cover bg-center app-banner -mt-4 gap-5'>
         <div>
           <Logo />
@@ -29,17 +30,17 @@ const Home: NextPageWithLayout = () => {
           />
           <div className="flex items-center justify-center gap-2">
             <Link href={'/category/marcas-y-tiendas'}>
-              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-4 ">
+              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-2 ">
                 Marcas y Tiendas
               </button>
             </Link>
             <Link href={'/category/marcas-y-tiendas'}>
-              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-4 ">
+              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-2 ">
                 Artistas y conciertos
               </button>
             </Link>
             <Link href={'/category/marcas-y-tiendas'}>
-              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-4 ">
+              <button className="text-gray-400 border-2 text-xs border-gray-40 bg-white rounded-full p-2 ">
                 Torneos
               </button>
             </Link>
@@ -65,5 +66,5 @@ const Home: NextPageWithLayout = () => {
 export default Home;
 
 Home.getLayout = (page) => {
-  return <Layout>{page}</Layout>;
+  return <Layout classMain='app-container'>{page}</Layout>;
 };

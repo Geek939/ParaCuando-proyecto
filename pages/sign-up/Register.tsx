@@ -93,9 +93,6 @@ export default function Register() {
   return (
     <div className="flex flex-wrap flex-col  place-content-center m-auto">
       {/*contenedor */}
-      <article className="relative mb-4 left-[94%]">
-        <ExitCircle></ExitCircle>
-      </article>
 
       <div
         className="flex flex-col bg-neutral-900/80 border-2 border-gray-letter h-3/6 
@@ -106,7 +103,7 @@ export default function Register() {
         <div className="flex flex-col font-bold  m-0  text-white  ">
           {' '}
           {/* XS */}
-          <h1 className="text-2xl  font-medium whitespace-nowrap   ">
+          <h1 className="text-2xl  font-medium    ">
             {' '}
             {/* XS */}
             Todos votamos :{')'}

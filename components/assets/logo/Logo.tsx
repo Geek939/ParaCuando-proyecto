@@ -4,7 +4,7 @@ interface ILogo extends React.ComponentPropsWithRef<'svg'> {
   onlyIcon?: boolean;
 }
 
-const Logo: React.FC<ILogo> = ({ variant = 'white', onlyIcon = false }) => {
+const Logo: React.FC<ILogo> = ({ variant = 'white', onlyIcon = false, ...svgProps }) => {
   const colors = {
     white: 'white',
     blue: '#1B4DB1',
@@ -17,6 +17,7 @@ const Logo: React.FC<ILogo> = ({ variant = 'white', onlyIcon = false }) => {
       viewBox="0 0 214 190"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...svgProps}
     >
       <g clipPath="url(#clip0_2688_12356)">
         <path

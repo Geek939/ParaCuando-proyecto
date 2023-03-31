@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { ExitCircle } from '../../components/assets/svg/ExitCircle';
 import swal from 'sweetalert';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+
 
 const LoginCard = () => {
 
@@ -74,13 +74,10 @@ type FormValues = {
        rounded-2xl  items-center justify-center p-5 
          max-w-[350px] m-auto"
       >
-        <article className="relative m-0 bottom-[40%] left-[94%]">
-          <ExitCircle></ExitCircle>
-        </article>
         {/* header del register */}
         <div className="flex flex-col font-bold place-content-center  w-auto m-0 mb-2 text-white  ">
           {/* XS */}
-          <h1 className="text-[32px] m-auto mr-[80%] font-medium   ">
+          <h1 className="text-2xl m-auto mr-[80%] font-medium   ">
             {/* XS */}
             ¡Hola!
           </h1>
@@ -119,11 +116,16 @@ type FormValues = {
 
           {/* --- SING UP BUTTON--- */}
           <div className="flex flex-col col-span-2">
-            <div className="flex flex-row gap-1 text-left">
-              <p className=" flex flex-row text-slate-300 text-sm mb-4 mt-0 font-normal ">
+            <div className="flex flex-row flex-wrap gap-1 mb-2 text-left">
+              <p className=" text-slate-300 text-sm font-normal ">
                 ¿Olvidaste tu contraseña?
               </p>{' '}
-              <p className="text-app-yellow text-sm ">Recupérala aquí</p>
+              <Link
+                href="./Recovery"
+                className="text-app-yellow text-sm "
+              >
+                Recupérala aquí
+              </Link>
             </div>
             <button
               onClick={() => router.push(NavigatetoLogin)}
